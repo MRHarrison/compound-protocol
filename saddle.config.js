@@ -1,4 +1,7 @@
 
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED=0
+
 module.exports = {
   // solc: "solc",                                          // Solc command to run
   solc_args: [                                              // Extra solc args
@@ -21,14 +24,8 @@ module.exports = {
   networks: {                                               // Define configuration for each network
     development: {
       providers: [
-      {env: "PROVIDER"},
-        {ganache: {
-          gasLimit: 20000000,
-          gasPrice: 20000,
-          defaultBalanceEther: 1000000000,
-          allowUnlimitedContractSize: true,
-          hardfork: 'istanbul'
-        }}
+        {env: "PROVIDER"},
+        {http: "https://ethrpc1:8545"}
       ],
       web3: {                                               // Web3 options for immediate confirmation in development mode
         gas: [
@@ -51,15 +48,9 @@ module.exports = {
     },
     test: {
       providers: [
-        {
-          ganache: {
-            gasLimit: 200000000,
-            gasPrice: 20000,
-            defaultBalanceEther: 1000000000,
-            allowUnlimitedContractSize: true,
-            hardfork: 'istanbul'
-          }
-        }
+
+        {env: "PROVIDER"},
+        {http: "https://ethrpc1:8545"}
       ],
       web3: {
         gas: [
