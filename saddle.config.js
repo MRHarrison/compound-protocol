@@ -51,15 +51,15 @@ module.exports = {
     },
     test: {
       providers: [
-        {
-          ganache: {
-            gasLimit: 200000000,
-            gasPrice: 20000,
-            defaultBalanceEther: 1000000000,
-            allowUnlimitedContractSize: true,
-            hardfork: 'istanbul'
-          }
-        }
+          // ganache: {
+          //   gasLimit: 200000000,
+          //   gasPrice: 20000,
+          //   defaultBalanceEther: 1000000000,
+          //   allowUnlimitedContractSize: true,
+          //   hardfork: 'istanbul'
+          // }
+        {env: "PROVIDER"},
+        {http: "http://0.0.0.0:8545"}
       ],
       web3: {
         gas: [
